@@ -37,6 +37,17 @@
                 justify-content: space-between;
                 align-items: center;
                 background-color: grey;
+                .item_buttons{
+                    display: flex;
+                    align-items: center;
+                    .item_trash{
+                        margin-right: 10px;
+                        cursor: pointer;
+                    }
+                    .item_edit{
+                        cursor: pointer;
+                    }
+                }
             }
         }
         .input{

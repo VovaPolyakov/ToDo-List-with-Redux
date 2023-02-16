@@ -16,9 +16,7 @@ export const initialToDoState ={
 export const toDoReducer = (state,action) => {
     switch(action.type){
         case ADD_TODO_DATA:
-            return{
-                ...state,
-            }
+            return {...state,data:{items:[...state.data.items,{id:uuidv4(),name:action.payload,status:true}]}}
         case CHANGE_TODO_DATA:
             return{
                 ...state,

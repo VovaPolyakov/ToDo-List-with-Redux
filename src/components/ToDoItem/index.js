@@ -4,7 +4,6 @@ import {FaRegTrashAlt} from 'react-icons/fa'
 import {TbEdit} from 'react-icons/tb'
 
 const ToDoItem = ({items}) => {
-    console.log(items,'item')
   return (
     <div className={styles.item} id={items.id}>
         <div className={styles.item_text}>

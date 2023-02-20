@@ -1,6 +1,6 @@
 export const ADD_TODO_DATA = 'ADD_TODO_DATA';
 export const DELETE_TODO_DATA = 'DELETE_TODO_DATA';
-export const CHANGE_TODO_DATA = 'CHANGE_TODO_DATA';
+export const DONE_TODO_DATA = 'DONE_TODO_DATA';
 
 export const addToDoData = (payload) => {
   return {
@@ -16,9 +16,11 @@ export const deleteToDoData = (payload) => {
   };
 };
 
-export const changeToDoData = (payload) => {
+export const doneToDoData = (payload,id) => {
+    console.log(payload,id)
     return {
-      type: CHANGE_TODO_DATA,
+      type: DONE_TODO_DATA,
       payload,
+      id,
     };
 };

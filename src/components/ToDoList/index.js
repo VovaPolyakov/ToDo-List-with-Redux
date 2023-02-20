@@ -19,7 +19,6 @@ const ToDoList = () => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        console.log('COMPONENT');
         dispatch(addToDoData(data));
     }
 

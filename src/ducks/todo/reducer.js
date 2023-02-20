@@ -1,12 +1,12 @@
 
-import {ADD_TODO_DATA,DELETE_TODO_DATA,CHANGE_TODO_DATA} from './actions'
+import {ADD_TODO_DATA,DELETE_TODO_DATA,DONE_TODO_DATA} from './actions'
 import { v4 as uuidv4 } from 'uuid';
 
 export const initialToDoState ={
     data:{
         items:[
-            {id:uuidv4(),name:'Make todo list.',status:true},
-            {id:uuidv4(),name:'Import to GitHub.',status:true}
+            {id:uuidv4(),name:'Make todo list.',status:false},
+            {id:uuidv4(),name:'Import to GitHub.',status:false}
         ]
     },
     error:null,
@@ -16,10 +16,16 @@ export const initialToDoState ={
 export const toDoReducer = (state,action) => {
     switch(action.type){
         case ADD_TODO_DATA:
-            return {...state,data:{items:[...state.data.items,{id:uuidv4(),name:action.payload,status:true}]}}
-        case CHANGE_TODO_DATA:
-            return{
-                ...state,
+            return {...state,data:{items:[...state.data.items,{id:uuidv4(),name:action.payload,status:false}]}}
+        case DONE_TODO_DATA:
+            return{...state,data:{items:[...state.data.items.map((item) => {
+                if(action.id === item.id){
+                    return{
+                        ...item,
+                        status:action.payload
+                    }
+                }
+            })]}
             }
         case DELETE_TODO_DATA:
             return{...state,data:{items:[...state.data.items.filter((item) => item.id !== action.payload )]}}

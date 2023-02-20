@@ -9,14 +9,16 @@ export const addToDoData = (payload) => {
   };
 };
 
-export const deleteToDoData = () => {
+export const deleteToDoData = (payload) => {
   return {
     type: DELETE_TODO_DATA,
+    payload,
   };
 };
 
-export const changeToDoData = () => {
+export const changeToDoData = (payload) => {
     return {
       type: CHANGE_TODO_DATA,
+      payload,
     };
 };

@@ -17,7 +17,6 @@ export const deleteToDoData = (payload) => {
 };
 
 export const doneToDoData = (payload,id) => {
-    console.log(payload,id)
     return {
       type: DONE_TODO_DATA,
       payload,

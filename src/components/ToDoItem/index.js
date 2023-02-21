@@ -13,7 +13,7 @@ const ToDoItem = ({items}) => {
   }
   const doneClick = (e) => {
     setDone(!done)
-    dispatch(doneToDoData(done,e.target.id))
+    dispatch(doneToDoData(done,e.currentTarget.id))
   }
   return (
     <div className={styles.item} id={items.id}>

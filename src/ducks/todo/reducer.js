@@ -18,15 +18,16 @@ export const toDoReducer = (state,action) => {
         case ADD_TODO_DATA:
             return {...state,data:{items:[...state.data.items,{id:uuidv4(),name:action.payload,status:false}]}}
         case DONE_TODO_DATA:
-            return{...state,data:{items:[...state.data.items.map((item) => {
-                if(action.id === item.id){
+            const updateArray = state.data.items.map((item) => {
+                if(item.id === action.id){
                     return{
                         ...item,
-                        status:action.payload
+                        status:!action.payload
                     }
                 }
-            })]}
-            }
+                return item
+            })
+            return {...state,data:{items:updateArray}}
         case DELETE_TODO_DATA:
             return{...state,data:{items:[...state.data.items.filter((item) => item.id !== action.payload )]}}
             
